@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhananjaya Moolamudu | Industrial IoT Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --bg: #0a0f1a;
+  --surface: #0f1825;
+  --card: #131e2e;
+  --border: #1e3048;
+  --accent: #00d4ff;
+  --accent2: #ff6b35;
+  --accent3: #39ff97;
+  --text: #e8f0fe;
+  --muted: #7a90b0;
+  --mono: 'Space Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --display: 'Syne', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── GRID NOISE BACKGROUND ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(0,212,255,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(57,255,151,0.04) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M0 0h40v1H0zM0 0v40h1V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(10,15,26,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* ── HERO ── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 3rem 4rem;
+  z-index: 1;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-label::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero-name {
+  font-family: var(--display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name span {
+  display: block;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-desc {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.hero-pipeline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.pipe-node {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.25);
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+.pipe-arrow {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+}
+.btn-primary:hover { background: #00b8d9; transform: translateY(-2px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.btn-outline:hover { background: rgba(0,212,255,0.08); transform: translateY(-2px); }
+
+.hero-stats {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.stat-item {
+  text-align: right;
+}
+.stat-num {
+  font-family: var(--display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── SECTION BASE ── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 3rem;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.section-num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── SKILLS ── */
+#skills { background: var(--surface); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.skill-card:hover { border-color: rgba(0,212,255,0.4); transform: translateY(-3px); }
+.skill-card:hover::before { opacity: 1; }
+
+.skill-card-icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+.skill-card-title {
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  background: rgba(0,212,255,0.07);
+  color: var(--accent);
+  border: 1px solid rgba(0,212,255,0.15);
+}
+.tag.green {
+  background: rgba(57,255,151,0.07);
+  color: var(--accent3);
+  border-color: rgba(57,255,151,0.15);
+}
+.tag.orange {
+  background: rgba(255,107,53,0.07);
+  color: var(--accent2);
+  border-color: rgba(255,107,53,0.15);
+}
+
+/* ── EXPERIENCE ── */
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  position: relative;
+}
+
+.exp-item + .exp-item { margin-top: 0; }
+
+.exp-left {
+  padding-top: 0.2rem;
+  text-align: right;
+  padding-right: 2rem;
+  position: relative;
+}
+
+.exp-left::after {
+  content: '';
+  position: absolute;
+  top: 0.5rem; right: -1px;
+  width: 1px;
+  height: 100%;
+  background: var(--border);
+}
+
+.exp-dot {
+  position: absolute;
+  top: 0.4rem;
+  right: -5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.exp-date {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.exp-company {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.exp-right {
+  padding-bottom: 3rem;
+}
+
+.exp-title {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.exp-subtitle {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--accent3);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.exp-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.project-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--accent);
+}
+
+.project-block.cv { border-left-color: var(--accent3); }
+.project-block.erp { border-left-color: var(--accent2); }
+
+.project-name {
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.project-client {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.project-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.project-bullets li {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+.project-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.7rem;
+  top: 0.15rem;
+}
+.project-block.cv .project-bullets li::before { color: var(--accent3); }
+.project-block.erp .project-bullets li::before { color: var(--accent2); }
+
+.project-metrics {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.metric {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+  background: rgba(0,212,255,0.06);
+  border: 1px solid rgba(0,212,255,0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+.metric.g { color: var(--accent3); background: rgba(57,255,151,0.06); border-color: rgba(57,255,151,0.2); }
+
+/* ── NODE-RED NPM CARD ── */
+.npm-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border-left: 3px solid #cb3837;
+  margin-top: 1.25rem;
+}
+.npm-icon {
+  font-size: 1.5rem;
+  color: #cb3837;
+}
+.npm-info { flex: 1; }
+.npm-title {
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.npm-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.npm-badge {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: #cb3837;
+  background: rgba(203,56,55,0.08);
+  border: 1px solid rgba(203,56,55,0.25);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.npm-badge:hover { background: rgba(203,56,55,0.15); }
+
+/* ── OPEN SOURCE / CONTACT ── */
+#opensource { background: var(--surface); }
+
+.os-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.os-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.os-card:hover { border-color: rgba(57,255,151,0.4); transform: translateY(-3px); }
+
+.os-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.os-card-icon { font-size: 1.3rem; color: var(--accent3); }
+.os-card-arrow { color: var(--muted); font-size: 0.8rem; transition: color 0.2s; }
+.os-card:hover .os-card-arrow { color: var(--accent3); }
+
+.os-card-title {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+.os-card-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.os-card-link {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--accent3);
+  letter-spacing: 0.03em;
+  word-break: break-all;
+}
+
+/* ── CONTACT ── */
+#contact {
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.contact-sub {
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 300;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.85rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.2s;
+  background: var(--card);
+}
+.contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.contact-link i { font-size: 1rem; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem 3rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 8px var(--accent); }
+  50%       { box-shadow: 0 0 18px var(--accent); }
+}
+
+.animate { opacity: 0; }
+.animate.visible { animation: fadeUp 0.6s ease forwards; }
+
+.exp-dot { animation: pulse 2.5s ease-in-out infinite; }
+
+/* stagger */
+.animate:nth-child(1) { animation-delay: 0s; }
+.animate:nth-child(2) { animation-delay: 0.1s; }
+.animate:nth-child(3) { animation-delay: 0.2s; }
+.animate:nth-child(4) { animation-delay: 0.3s; }
+.animate:nth-child(5) { animation-delay: 0.4s; }
+.animate:nth-child(6) { animation-delay: 0.5s; }
+
+.hero-label, .hero-name, .hero-title, .hero-desc, .hero-pipeline, .hero-cta {
+  animation: fadeUp 0.7s ease forwards;
+  animation-fill-mode: both;
+}
+.hero-label   { animation-delay: 0.1s; }
+.hero-name    { animation-delay: 0.25s; }
+.hero-title   { animation-delay: 0.4s; }
+.hero-desc    { animation-delay: 0.5s; }
+.hero-pipeline{ animation-delay: 0.6s; }
+.hero-cta     { animation-delay: 0.75s; }
+.hero-stats   { animation: fadeUp 0.7s 0.5s ease both; }
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.2rem; }
+  section { padding: 4rem 1.5rem; }
+  #hero { padding: 7rem 1.5rem 3rem; }
+  .hero-stats { display: none; }
+  .exp-item { grid-template-columns: 1fr; }
+  .exp-left { text-align: left; padding-right: 0; padding-left: 1.5rem; }
+  .exp-left::after { left: 0; right: auto; }
+  .exp-dot { left: -4px; right: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">DM // PORTFOLIO</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#opensource">Open Source</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="about">
+<div id="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Industrial IoT Engineer · Chennai, India</div>
+    <h1 class="hero-name">
+      Dhananjaya<span>Moolamudu</span>
+    </h1>
+    <div class="hero-title">Full-Stack IoT Developer · Computer Vision · Embedded Systems</div>
+    <p class="hero-desc">
+      Building end-to-end Industrial IoT systems — from device firmware to cloud dashboards.
+      2+ years deploying real-world solutions in energy management, AI quality inspection,
+      and manufacturing automation.
+    </p>
+    <div class="hero-pipeline">
+      <span class="pipe-node">Device</span>
+      <span class="pipe-arrow">→</span>
+      <span class="pipe-node">Gateway</span>
+      <span class="pipe-arrow">→</span>
+      <span class="pipe-node">Edge Computing</span>
+      <span class="pipe-arrow">→</span>
+      <span class="pipe-node">Database</span>
+      <span class="pipe-arrow">→</span>
+      <span class="pipe-node">API Layer</span>
+      <span class="pipe-arrow">→</span>
+      <span class="pipe-node">Dashboard</span>
+      <span class="pipe-arrow">→</span>
+      <span class="pipe-node">ERP Integration</span>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:dhananjayamoolamudu@gmail.com" class="btn btn-primary">Get In Touch</a>
+      <a href="https://www.linkedin.com/in/moolamudu-dhananjaya" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">136+</div>
+      <div class="stat-label">Devices<br>Integrated</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15K+</div>
+      <div class="stat-label">Data Points<br>/ Minute</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">95%+</div>
+      <div class="stat-label">CV Detection<br>Accuracy</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">600+</div>
+      <div class="stat-label">Inspections<br>/ Hour</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="section-inner">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card animate">
+      <div class="skill-card-icon"><i class="fas fa-microchip"></i></div>
+      <div class="skill-card-title">IIoT & Embedded Systems</div>
+      <div class="skill-tags">
+        <span class="tag">ESP32</span><span class="tag">ARM</span>
+        <span class="tag">Industry 4.0</span><span class="tag">OEE Monitoring</span>
+        <span class="tag">SCADA</span><span class="tag">MES Integration</span>
+        <span class="tag">OTA Firmware</span><span class="tag">Energy Mgmt</span>
+      </div>
+    </div>
+
+    <div class="skill-card animate">
+      <div class="skill-card-icon"><i class="fas fa-network-wired"></i></div>
+      <div class="skill-card-title">IoT Protocols & Networking</div>
+      <div class="skill-tags">
+        <span class="tag">MQTT</span><span class="tag">Modbus RTU/TCP</span>
+        <span class="tag">OPC-UA</span><span class="tag">HTTP/HTTPS</span>
+        <span class="tag">LoRaWAN</span><span class="tag">Zigbee</span>
+        <span class="tag">I2C · SPI · UART</span><span class="tag">RS485/422</span>
+      </div>
+    </div>
+
+    <div class="skill-card animate">
+      <div class="skill-card-icon"><i class="fas fa-eye"></i></div>
+      <div class="skill-card-title">Computer Vision & AI/ML</div>
+      <div class="skill-tags">
+        <span class="tag green">YOLO</span><span class="tag green">OpenCV</span>
+        <span class="tag green">TensorFlow</span><span class="tag green">PyTorch</span>
+        <span class="tag green">Object Detection</span>
+        <span class="tag green">Dataset Annotation</span>
+        <span class="tag green">Model Deployment</span>
+        <span class="tag green">Defect Detection</span>
+      </div>
+    </div>
+
+    <div class="skill-card animate">
+      <div class="skill-card-icon"><i class="fas fa-code"></i></div>
+      <div class="skill-card-title">Programming & Development</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span><span class="tag">FastAPI</span>
+        <span class="tag">Django</span><span class="tag">Tkinter</span>
+        <span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+        <span class="tag">Node.js</span><span class="tag">React.js</span>
+        <span class="tag">JavaScript ES6+</span><span class="tag">C/C++</span>
+      </div>
+    </div>
+
+    <div class="skill-card animate">
+      <div class="skill-card-icon"><i class="fas fa-shield-halved"></i></div>
+      <div class="skill-card-title">Security & Cloud</div>
+      <div class="skill-tags">
+        <span class="tag orange">SSL/TLS</span><span class="tag orange">SSH</span>
+        <span class="tag orange">Nginx</span><span class="tag orange">AWS IoT Core</span>
+        <span class="tag orange">IP Networking</span>
+        <span class="tag orange">Docker</span><span class="tag orange">k8s</span>
+        <span class="tag orange">CI/CD</span>
+      </div>
+    </div>
+
+    <div class="skill-card animate">
+      <div class="skill-card-icon"><i class="fas fa-database"></i></div>
+      <div class="skill-card-title">Data & Backend</div>
+      <div class="skill-tags">
+        <span class="tag">PostgreSQL</span><span class="tag">NoSQL</span>
+        <span class="tag">Time-Series</span><span class="tag">Node-RED</span>
+        <span class="tag">Data Pipeline</span><span class="tag">Store-Forward</span>
+        <span class="tag">WebSocket</span><span class="tag">REST APIs</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="section-inner">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="exp-timeline">
+    <div class="exp-item animate">
+      <div class="exp-left">
+        <div class="exp-dot"></div>
+        <div class="exp-date">May 2024 – Present</div>
+        <div class="exp-company">Ingenious Techzoid<br>Zillion Edge</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-title">Industrial IoT Engineer</div>
+        <div class="exp-subtitle">FULL-STACK IoT · EDGE · COMPUTER VISION</div>
+
+        <div class="exp-projects">
+
+          <!-- EMS -->
+          <div class="project-block animate">
+            <div class="project-name">Energy Management System (EMS)</div>
+            <div class="project-client">CLIENT: Larsen &amp; Toubro</div>
+            <ul class="project-bullets">
+              <li>Designed and deployed enterprise-scale EMS connecting <strong>136+ energy meters</strong> via Modbus TCP, MQTT, RS485/422, Node-RED, and IoT Platform.</li>
+              <li>Built Python &amp; JavaScript edge-processing workflows for data acquisition, transformation, validation, and anomaly detection.</li>
+              <li>Implemented store-and-forward architecture for reliable collection during network outages.</li>
+              <li>Developed operational dashboards, KPI monitoring, alarm management, and automated reporting.</li>
+            </ul>
+            <div class="project-metrics">
+              <span class="metric">136+ Meters</span>
+              <span class="metric">15,000+ pts/min</span>
+              <span class="metric">Modbus TCP</span>
+              <span class="metric">MQTT</span>
+            </div>
+          </div>
+
+          <!-- AMS -->
+          <div class="project-block animate">
+            <div class="project-name">Asset Management System (AMS)</div>
+            <div class="project-client">CLIENT: Larsen &amp; Toubro</div>
+            <ul class="project-bullets">
+              <li>Developed centralized dashboards for equipment tracking, performance analytics, and maintenance visibility.</li>
+              <li>Integrated industrial sensors, PLCs, and field devices into a unified real-time health monitoring platform.</li>
+              <li>Enabled predictive maintenance workflows via operational data collection and reporting.</li>
+            </ul>
+          </div>
+
+          <!-- NPM Package -->
+          <div class="npm-card animate">
+            <div class="npm-icon"><i class="fab fa-npm"></i></div>
+            <div class="npm-info">
+              <div class="npm-title">Open Source: Node-RED Custom Node (NPM Published)</div>
+              <div class="npm-desc">Converts raw byte data → IEEE-754 32-bit float values. For PLCs, Modbus, industrial sensors &amp; binary protocol decoding.</div>
+            </div>
+            <a href="https://www.npmjs.com/search?q=node-red" target="_blank" class="npm-badge">View on NPM ↗</a>
+          </div>
+
+          <!-- CV Thermistor -->
+          <div class="project-block cv animate">
+            <div class="project-name">AI Visual Inspection — Thermistor Defect Detection</div>
+            <div class="project-client">CLIENT: UNO MINDA Ltd, Sensor Division, Pune</div>
+            <ul class="project-bullets">
+              <li>Developed AI-powered inspection system using <strong>YOLO, OpenCV, TensorFlow</strong> for automotive component quality control.</li>
+              <li>Built and annotated dataset of <strong>500+ labeled images</strong> across 7+ defect categories (missing components, welding defects, physical damage).</li>
+              <li>Deployed real-time model achieving <strong>95%+ detection accuracy</strong>, processing 600+ inspections/hour.</li>
+              <li>Built Python/Tkinter GUI integrated with SDK-based industrial camera for real-time defect visualization.</li>
+            </ul>
+            <div class="project-metrics">
+              <span class="metric g">95%+ Accuracy</span>
+              <span class="metric g">600+ Insp/hr</span>
+              <span class="metric g">YOLO · OpenCV · TF</span>
+            </div>
+          </div>
+
+          <!-- STUD -->
+          <div class="project-block cv animate">
+            <div class="project-name">Dimensional Inspection — STUD Height Measurement</div>
+            <div class="project-client">CLIENT: SKH SMC LIMITED, Pune</div>
+            <ul class="project-bullets">
+              <li>OpenCV-based solution for stud height validation within 15.20–17.20 mm tolerance range.</li>
+              <li>Achieved measurement accuracy of <strong>±0.05 mm</strong> via camera calibration, image processing &amp; geometric transforms.</li>
+              <li>Automated detection of missing studs and surface defects with Tkinter GUI integration.</li>
+            </ul>
+            <div class="project-metrics">
+              <span class="metric g">±0.05 mm Accuracy</span>
+              <span class="metric g">OpenCV</span>
+            </div>
+          </div>
+
+          <!-- Batch Tracking -->
+          <div class="project-block erp animate">
+            <div class="project-name">Batch Tracking &amp; IIoT Integration — Odoo MES/ERP</div>
+            <div class="project-client">CLIENT: Parsons Nutritionals Pvt Ltd</div>
+            <ul class="project-bullets">
+              <li>Odoo MES-based batch tracking with barcode-driven production workflows for raw material traceability.</li>
+              <li>Integrated VFDs, weighing scales, industrial sensors &amp; gateways to capture real-time production data.</li>
+              <li>Built dashboards for batch status, mixer RPM, temperature, sensor readings &amp; production workflows.</li>
+              <li>Secured with Nginx reverse proxy, SSL/TLS configuration &amp; controlled remote access.</li>
+              <li>End-to-end ERP + MES + CMMS + IIoT integration improving production visibility and batch accuracy.</li>
+            </ul>
+            <div class="project-metrics">
+              <span class="metric" style="color:var(--accent2);background:rgba(255,107,53,0.06);border-color:rgba(255,107,53,0.2)">Odoo MES/ERP</span>
+              <span class="metric" style="color:var(--accent2);background:rgba(255,107,53,0.06);border-color:rgba(255,107,53,0.2)">SSL/TLS</span>
+              <span class="metric" style="color:var(--accent2);background:rgba(255,107,53,0.06);border-color:rgba(255,107,53,0.2)">CMMS</span>
+            </div>
+          </div>
+
+        </div><!-- /exp-projects -->
+      </div><!-- /exp-right -->
+    </div><!-- /exp-item -->
+  </div><!-- /exp-timeline -->
+</div>
+</section>
+
+<!-- OPEN SOURCE & LINKS -->
+<section id="opensource">
+<div class="section-inner">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Open Source & Links</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="os-grid">
+    <a href="https://www.linkedin.com/in/moolamudu-dhananjaya" target="_blank" class="os-card animate">
+      <div class="os-card-top">
+        <i class="fab fa-linkedin os-card-icon"></i>
+        <i class="fas fa-arrow-up-right-from-square os-card-arrow"></i>
+      </div>
+      <div class="os-card-title">LinkedIn Profile</div>
+      <div class="os-card-desc">Professional network, work history, and industry connections.</div>
+      <div class="os-card-link">linkedin.com/in/moolamudu-dhananjaya</div>
+    </a>
+
+    <a href="https://www.npmjs.com/search?q=node-red%20ieee754" target="_blank" class="os-card animate">
+      <div class="os-card-top">
+        <i class="fab fa-npm os-card-icon"></i>
+        <i class="fas fa-arrow-up-right-from-square os-card-arrow"></i>
+      </div>
+      <div class="os-card-title">NPM — Node-RED Custom Node</div>
+      <div class="os-card-desc">Published open-source Node-RED node for IEEE-754 byte conversion. Used in industrial PLC and Modbus deployments.</div>
+      <div class="os-card-link">npmjs.com</div>
+    </a>
+
+    <a href="mailto:dhananjayamoolamudu@gmail.com" class="os-card animate">
+      <div class="os-card-top">
+        <i class="fas fa-envelope os-card-icon"></i>
+        <i class="fas fa-arrow-up-right-from-square os-card-arrow"></i>
+      </div>
+      <div class="os-card-title">Email</div>
+      <div class="os-card-desc">Reach out directly for project inquiries, collaborations, or opportunities.</div>
+      <div class="os-card-link">dhananjayamoolamudu@gmail.com</div>
+    </a>
+
+    <a href="https://nodered.org" target="_blank" class="os-card animate">
+      <div class="os-card-top">
+        <i class="fas fa-diagram-project os-card-icon"></i>
+        <i class="fas fa-arrow-up-right-from-square os-card-arrow"></i>
+      </div>
+      <div class="os-card-title">Node-RED</div>
+      <div class="os-card-desc">Flow-based IoT orchestration platform — core tool used across EMS/AMS deployments with custom node contributions.</div>
+      <div class="os-card-link">nodered.org</div>
+    </a>
+
+    <a href="https://github.com" target="_blank" class="os-card animate">
+      <div class="os-card-top">
+        <i class="fab fa-github os-card-icon"></i>
+        <i class="fas fa-arrow-up-right-from-square os-card-arrow"></i>
+      </div>
+      <div class="os-card-title">GitHub</div>
+      <div class="os-card-desc">Code repositories, projects, and open-source contributions in IoT, Python, and Computer Vision.</div>
+      <div class="os-card-link">github.com</div>
+    </a>
+
+    <a href="https://ultralytics.com/yolo" target="_blank" class="os-card animate">
+      <div class="os-card-top">
+        <i class="fas fa-eye os-card-icon"></i>
+        <i class="fas fa-arrow-up-right-from-square os-card-arrow"></i>
+      </div>
+      <div class="os-card-title">YOLO — Object Detection</div>
+      <div class="os-card-desc">Open-source framework used for real-time defect detection achieving 95%+ accuracy in automotive quality inspection.</div>
+      <div class="os-card-link">ultralytics.com/yolo</div>
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="section-inner">
+  <div class="section-header" style="justify-content:center">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Let's Connect</h2>
+  </div>
+  <div class="contact-inner">
+    <p class="contact-sub">Open to IIoT, embedded systems, and computer vision roles or collaborations.</p>
+    <div class="contact-links">
+      <a href="mailto:dhananjayamoolamudu@gmail.com" class="contact-link">
+        <i class="fas fa-envelope"></i> dhananjayamoolamudu@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/moolamudu-dhananjaya" target="_blank" class="contact-link">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com" target="_blank" class="contact-link">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+  &copy; 2025 Dhananjaya Moolamudu &nbsp;·&nbsp; Industrial IoT Engineer &nbsp;·&nbsp; Chennai, India
+</footer>
+
+<script>
+// Scroll-triggered animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+// Active nav link highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+  });
+});
+</script>
+
+</body>
+</html>
